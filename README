@@ -2,36 +2,97 @@
 
 * About
 
-Guile-Daemon is a small Guile program that loads your initial
-configuration file, and then reads and evaluates Guile expressions that
-you send to a FIFO file.  That's basically it.
+GNU Agent-Zero Genesis is a hypergraphically-encoded cognitive OS environment
+built on top of Guile-Daemon, designed for autonomous cognitive agents using
+GNU Guix, Guile, and cognitive computing frameworks.
 
-Normally, =guile-daemon= will not exit: it's a daemon, so it just "sits"
-on a FIFO file waiting for commands.
+Agent-Zero Genesis extends the original Guile-Daemon with:
 
-Along with =guile-daemon= program, Guile-Daemon provides =gdpipe= shell
-script that redirects commands to the default FIFO file.
+- **Cognitive Kernels**: Tensor-based processing units with prime factorization encoding
+- **Hypergraph AtomSpace**: OpenCog-inspired knowledge representation
+- **ECAN Attention Networks**: Economic Cognitive Attention allocation
+- **Meta-Cognitive Loops**: Recursive self-description and adaptation
+- **Distributed Cognition**: Multi-agent coordination and communication
 
-Finally, you can also connect to the daemon using a socket file (for
-example, with =M-x geiser-connect-local= if you use [[https://github.com/jaor/geiser][Geiser]]).
+The system provides a FIFO-based interface for cognitive commands and
+supports socket connections for interactive development with tools like Geiser.
+
+Core cognitive subsystems:
+- **Memory**: AtomSpace hypergraph store, persistent cognitive states
+- **Task**: Scheduler, MOSES optimizer, agent orchestration
+- **AI**: PLN reasoning, ECAN attention, pattern matching  
+- **Autonomy**: Self-modifying kernels, adaptive package selection
 
 By default, socket and FIFO files are placed in
 [[file:$XDG_CONFIG_HOME/guile-daemon/run]] directory
 ([[file:$HOME/.config/guile-daemon/run]] if XDG_CONFIG_HOME is not set).
 
-* Usage
+* Quick Start
 
-Simply run =guile-daemon= (remember, it won't fork!), and then use
-=gdpipe= to evaluate anything, like this:
+** Agent-Zero Genesis Setup
+
+The fastest way to get started with Agent-Zero Genesis:
 
 #+BEGIN_SRC sh
-gdpipe '(format #t "load path: ~a~%" %load-path)'
+# Clone and setup
+git clone https://github.com/ZoneCog/guile-daemon-zero.git
+cd guile-daemon-zero
+./scripts/setup-agent-zero.sh
 #+END_SRC
 
-(on a console where =guile-daemon= is running you should see the load
-path)
+** Manual Setup with Guix
 
-I use Guile-Daemon as an OSD daemon, see [[https://github.com/alezost/guile-daemon-config][my config]].
+#+BEGIN_SRC sh
+# Create Agent-Zero environment
+export AGENT_ZERO_MANIFEST=1
+guix environment -m guix.scm
+
+# Build the system
+./autogen.sh
+./configure --enable-cognitive-extensions  
+make
+
+# Start Agent-Zero cognitive daemon
+./pre-inst-env guile-daemon &
+
+# Send cognitive commands
+./pre-inst-env gdpipe '(use-modules (agent-zero))'
+./pre-inst-env gdpipe '(spawn-agent-zero (load-agent-zero-config "agent-zero-config.scm"))'
+#+END_SRC
+
+* Cognitive Agent Usage
+
+Simply run =guile-daemon= with Agent-Zero extensions, then use =gdpipe= 
+to interact with the cognitive system:
+
+#+BEGIN_SRC sh
+# Start cognitive daemon
+guile-daemon --config agent-zero-config.scm &
+
+# Spawn cognitive kernels
+gdpipe '(use-modules (agent-zero kernel))'
+gdpipe '(spawn-cognitive-kernel (64 64) logical-reasoning 0.8)'
+
+# Create hypergraph knowledge
+gdpipe '(use-modules (agent-zero hypergraph))'  
+gdpipe '(let ((as (make-atomspace)))
+          (atomspace-add-node! as "ConceptNode" "intelligence")
+          (atomspace-add-node! as "ConceptNode" "agent-zero"))'
+
+# Apply attention allocation
+gdpipe '(use-modules (agent-zero attention))'
+gdpipe '(let ((net (make-attention-network)))
+          (allocate-attention! net kernels stimuli))'
+#+END_SRC
+
+Agent-Zero Genesis can be used for:
+- Cognitive computing research
+- AI agent development  
+- Hypergraph knowledge representation
+- Attention-based reasoning systems
+- Meta-cognitive architectures
+
+See [[file:AGENT-ZERO-GENESIS.md]] for comprehensive documentation.
 
 * Building from Git
 
