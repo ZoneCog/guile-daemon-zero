@@ -55,7 +55,8 @@
  (gnu packages machine-learning)
  (gnu packages maths)
  (gnu packages base)
- (gnu packages bash))
+ (gnu packages bash)
+ (agent-zero packages cognitive))
 
 (define %source-dir (dirname (current-filename)))
 
@@ -78,9 +79,10 @@ newspace."
     guile-3.0                    ; Core Scheme runtime
     guile-lib                    ; Extended Guile libraries
     
-    ;; Core cognition and reasoning
-    ;; Note: Some packages may need to be defined locally or built separately
-    ;; as they may not be available in standard Guix repositories
+    ;; Cognitive computing frameworks
+    opencog                      ; Cognitive computing platform
+    opencog-atomspace            ; Hypergraph knowledge representation
+    ggml                         ; Tensor operations library
     
     ;; Base system utilities
     coreutils                    ; Basic OS utilities
@@ -93,7 +95,8 @@ newspace."
     texinfo                      ; Documentation
     
     ;; Mathematics and computation
-    ;; Note: Advanced AI packages like OpenCog, ggml may need custom definitions
+    ;; Note: Advanced AI packages like PLN, ECAN, MOSES will be added
+    ;; as they become available in the cognitive packages module
     ))
 
 ;; Development environment for guile-daemon-zero

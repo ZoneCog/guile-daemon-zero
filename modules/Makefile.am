@@ -25,7 +25,12 @@ MODULES =					\
   daemon/defaults.scm				\
   daemon/utils.scm				\
   daemon/ui.scm					\
-  daemon.scm
+  daemon.scm					\
+  agent-zero/kernel.scm				\
+  agent-zero/hypergraph.scm			\
+  agent-zero/attention.scm			\
+  agent-zero/packages/cognitive.scm		\
+  agent-zero.scm
 
 CONFIG_SCM = daemon/config.scm
 CONFIG_GO  = $(CONFIG_SCM:%.scm=%.go)
