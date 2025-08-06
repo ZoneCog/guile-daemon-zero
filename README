@@ -92,7 +92,22 @@ Agent-Zero Genesis can be used for:
 - Attention-based reasoning systems
 - Meta-cognitive architectures
 
-See [[file:AGENT-ZERO-GENESIS.md]] for comprehensive documentation.
+** Cognitive Computing Packages
+
+Agent-Zero now includes Guix package definitions for cognitive computing
+frameworks:
+
+- **OpenCog**: Hypergraph knowledge representation and cognitive algorithms
+- **OpenCog AtomSpace**: Core hypergraph database for AGI research
+- **GGML**: High-performance tensor operations for machine learning
+
+To validate the package definitions:
+#+BEGIN_SRC sh
+./scripts/validate-cognitive-packages.sh
+#+END_SRC
+
+See [[file:doc/COGNITIVE-PACKAGES.md]] for detailed package documentation
+and [[file:AGENT-ZERO-GENESIS.md]] for comprehensive development guide.
 
 * Building from Git
 
