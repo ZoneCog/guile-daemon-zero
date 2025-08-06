@@ -22,7 +22,13 @@
             kernel-tensor-field
             update-kernel-state
             kernel-compute
-            prime-factorization-shape))
+            prime-factorization-shape
+            update-tensor-field
+            tensor-field-compute
+            logical-reasoning-compute
+            pattern-learning-compute
+            attention-allocation-compute
+            memory-consolidation-compute))
 
 ;;; Tensor Field Operations
 
